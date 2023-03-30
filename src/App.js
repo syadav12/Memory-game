@@ -78,11 +78,11 @@ export default function App() {
   };
   //to hanlde Restart button
   const handleRestart = () => {
+    setData(ShuffleCards(data));
     setTime(0);
     setOpenCards([]);
     setClearCards([]);
     setShowModal(false);
-    setData(ShuffleCards(data.concat(data)));
     setScore(0);
   };
   //to Start the Timer
@@ -124,7 +124,7 @@ export default function App() {
         <div className="start">
           <Button
             type="button"
-            className="btn btn-primary"
+            class="btn btn-primary"
             onClick={(e) => startTimer(e)}
           >
             Start
