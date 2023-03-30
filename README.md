@@ -1,2 +1,3 @@
 # Memory-game
-Created with CodeSandbox
+for Dialogbox used matarial UI.
+for performance optimasation used useCallback and React.memo().
