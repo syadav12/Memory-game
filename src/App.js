@@ -19,8 +19,10 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [time, setTime] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  //Calling API to get All Cards Details
   useEffect(() => {
     var getCard = async () => {
+      //
       let firstRes = await fetch(
         "https://api.github.com/repos/facebook/react/contributors"
       );
@@ -34,6 +36,7 @@ export default function App() {
   useEffect(() => {
     checkCompletion();
   }, [clearCards]);
+  //called  when Cards flipped
   useEffect(() => {
     let timeout = null;
     if (openCards.length === 2) {
@@ -41,8 +44,8 @@ export default function App() {
     }
     return () => clearTimeout(timeout);
   }, [openCards]);
+  //called  when time changes
   useEffect(() => {
-    console.log("AAAAAAAAAAAAAA", time);
     if (time !== 0) {
       if (time < 60) {
         setTimeout(() => {
@@ -53,6 +56,7 @@ export default function App() {
       }
     }
   }, [time]);
+  //to evalute card flip in each time
   const evaluate = () => {
     const [first, second] = openCards;
     if (data[first].login === data[second].login) {
@@ -64,12 +68,14 @@ export default function App() {
       setOpenCards([]);
     }
   };
+  //to check weather all cards are flipped
   const checkCompletion = () => {
     if (clearCards.length === 12) {
       setTime(0);
       setShowModal(true);
     }
   };
+  //to hanlde Restart button
   const handleRestart = () => {
     setTime(0);
     setOpenCards([]);
@@ -78,6 +84,7 @@ export default function App() {
     setData(ShuffleCards(data.concat(data)));
     setScore(0);
   };
+  //to Start the Timer
   const startTimer = (e) => {
     e.preventDefault();
     setTime(time + 1);
@@ -123,6 +130,7 @@ export default function App() {
           </Button>
         </div>
       </div>
+      {/* code for modal popup */}
       <Dialog open={showModal} className="dialog">
         {score > 0 ? (
           <DialogTitle>Hurray!!! You completed the challenge</DialogTitle>
