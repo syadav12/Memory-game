@@ -1,3 +1,4 @@
+//to suffle the card
 function ShuffleCards(array) {
   const length = array.length;
   for (let i = length; i > 0; i--) {

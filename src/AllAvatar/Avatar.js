@@ -1,7 +1,7 @@
 import React from "react";
 import "./avatar.css";
-import dice from '../Images/dice.png';
-
+import dice from "../Images/dice.png";
+//to show Each card
 function Avatar(props) {
   const { card, index, isFlipped, onClick, inActive, disable } = props;
   return (

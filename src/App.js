@@ -27,7 +27,7 @@ export default function App() {
         "https://api.github.com/repos/facebook/react/contributors"
       );
       let secRes = await firstRes.json();
-      let res = secRes.slice(0, 6);
+      let res = secRes.slice(0, 6); //to pick element from array
       let finalRes = ShuffleCards(res.concat(res));
       setData(finalRes);
     };
@@ -59,6 +59,7 @@ export default function App() {
   //to evalute card flip in each time
   const evaluate = () => {
     const [first, second] = openCards;
+    //to check both flipped cards are same or not
     if (data[first].login === data[second].login) {
       setOpenCards([]);
       setClearCards((prev) => [...prev, first, second]);
@@ -71,7 +72,7 @@ export default function App() {
   //to check weather all cards are flipped
   const checkCompletion = () => {
     if (clearCards.length === 12) {
-      setTime(0);
+      setTime(0); //set time 0
       setShowModal(true);
     }
   };
@@ -123,7 +124,7 @@ export default function App() {
         <div className="start">
           <Button
             type="button"
-            class="btn btn-primary"
+            className="btn btn-primary"
             onClick={(e) => startTimer(e)}
           >
             Start

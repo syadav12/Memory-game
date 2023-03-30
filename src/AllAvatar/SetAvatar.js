@@ -6,6 +6,7 @@ const SetAvatar = (props) => {
   const checkIsFlipped = (index) => {
     return time > 0 && openCards.includes(index);
   };
+  //called when each card flipped
   const handleCardClick = useCallback(
     (index) => {
       if (openCards.length === 1) {
